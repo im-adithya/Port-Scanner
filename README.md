@@ -1,1 +1,29 @@
-# Port-Scanner
+### Port Scanner
+
+The `port_scanner.py` file consists of a function called `get_open_ports` that takes a `target` argument and a `port_range` argument. `target` can be a URL or IP address. `port_range` is a list of two numbers indicating the first and last numbers of the range of ports to check.
+
+Here are examples of how the function may be called:
+```
+get_open_ports("209.216.230.240", [440, 445])
+get_open_ports("www.stackoverflow.com", [79, 82])
+```
+
+The function returns a list of open ports in the given range.
+
+The `get_open_ports` function can also take an optional third argument of `True` to indicate "Verbose" mode. If this is set to true, the function returns a descriptive string instead of a list of ports.
+
+For example, if the function is called like this:
+```
+port_scanner.get_open_ports("scanme.nmap.org", [20, 80], True)
+```
+It returns the following:
+```
+Open ports for scanme.nmap.org (45.33.32.156)
+PORT     SERVICE
+22       ssh
+80       http
+```
+
+If the URL passed into the `get_open_ports` function is invalid, the function returns the string: "Error: Invalid hostname".
+
+If the IP address passed into the `get_open_ports` function is invalid, the function returns the string: "Error:  Invalid IP address".
